@@ -1,19 +1,48 @@
+
+@import "./variables";
+
+.clothes {
+  background: $clothes;
+  order:1;
+}
+
 .toilet {
-  background: blueviolet;
+  background: $toilet;
+  order:2;
 }
 
 .electronics {
-  background: rgba(200, 100, 50, 0.5)
+  background: $electronics;
+  order: 3;
 }
 
-.clothes {
-  background: greenyellow;
+.paperwork {
+  background: $papework;
+  order: 3;
+}
+
+.packed {
+  order: 5;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  flex-direction: column;
 }
 
 li {
+  background: $papework;
   display: flex;
-  flex-direction: column;
-  margin: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 54px;
+
+  svg {
+    padding: 0 10px;
+  }
 }
 
 .packed {
@@ -25,7 +54,9 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+  opacity: 0.5;
   &:hover{
-    background: red;
+    opacity: 1;
+    transition: 0.3s;
   }
 }

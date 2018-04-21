@@ -28,9 +28,10 @@
                  packed: item.packed}">
           <sunIcon width="28px" v-if="item.season == 'summer'" />
           <flakeIcon width="28px" v-if="item.season == 'winter'" />
+          <allIcon width="28px" height="28px" v-if="item.season == 'all'" />
           <p @click="item.packed = !item.packed">{{item.name}}</p>
           <div v-if="!item.edit">
-            <button  @click="removeItem(item['.key'])">
+            <button @click="removeItem(item['.key'])">
               <delete-icon width="28px"></delete-icon>
             </button>
             <button @click="setEditItem(item['.key'])">
@@ -63,13 +64,15 @@
 
 <script>
 import { itemsRef } from "../firebase";
+import EditComponent from "./EditComponent";
 import sunIcon from "../assets/sun.svg";
 import flakeIcon from "../assets/scarf.svg";
 import deleteIcon from "../assets/delete.svg";
 import pencilIcon from "../assets/pencil.svg";
+import allIcon from "../assets/all.svg";
 export default {
   name: "addItem",
-  components: { sunIcon, flakeIcon, deleteIcon, pencilIcon},
+  components: { EditComponent, sunIcon, flakeIcon, deleteIcon, pencilIcon, allIcon},
   firebase: {
     items: itemsRef
   },
@@ -79,14 +82,14 @@ export default {
       newItem: {
         name: "",
         season: "",
-        type: "",
+        kind: "",
         user: "",
         packed: false
       },
        editItem: {
         name: "",
         season: "",
-        type: "",
+        kind: "",
         user: "",
         packed: false
       }

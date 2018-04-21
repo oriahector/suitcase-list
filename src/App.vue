@@ -23,18 +23,35 @@ export default {
 }
 </script>
 <style lang="scss">
+
+html, body {
+  height:100%;
+  margin: 0;
+  padding: 0;
+}
 #app {
+  height: 100%;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-image: url('./assets/background.jpg');
+  background-position: cover; 
+  background-attachment: fixed;
+  background-size: cover;
+  padding-top: 20px;
+  background-repeat: no-repeat;
 }
 
 h1,
 h2 {
   font-weight: normal;
+  padding: 0;
+  color: white;
+}
+label {
+  color: white;
 }
 
 ul {
