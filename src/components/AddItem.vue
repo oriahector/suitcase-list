@@ -2,20 +2,20 @@
 <template>
   <div>
     <div class="users">
-      <div class="users__hector" @click="toggleHector" :class="{active: usuario === 'Hector'}"></div>
-     <div class="users__lola" @click="toggleLola" :class="{active: usuario === 'Lola'}"></div>
+      <div class="users__hector" @click="toggleHector" :class="{active: usuario === 'hector'}"></div>
+     <div class="users__lola" @click="toggleLola" :class="{active: usuario === 'lola'}"></div>
     </div>
      <div class="seasons">
-      <div class="seasons__summer" @click="toggleSummer" :class="{active: estacion === 'Summer'}">
+      <div class="seasons__summer" @click="toggleSummer" :class="{active: estacion === 'summer'}">
         <sunIcon />
       </div>
-     <div class="seasons__winter" @click="toggleWinter" :class="{active: estacion === 'Winter'}">
+     <div class="seasons__winter" @click="toggleWinter" :class="{active: estacion === 'winter'}">
        <flake-icon />
      </div>
     </div>
 
     <h1> {{estacion}} Suitcase for {{usuario}}</h1>
-    <h2>This suitcase has: {{items.length}} items</h2>
+    <h2>This suitcase has: {{filterItems.length}} items</h2>
 
     <div>
       <label>Add a new item</label>
@@ -93,8 +93,8 @@ export default {
   data() {
     return {
       item: "",
-      usuario: "Hector",
-      estacion: "Summer",
+      usuario: "hector",
+      estacion: "summer",
       newItem: {
         name: "",
         season: "",
@@ -111,7 +111,7 @@ export default {
   },
   computed: {
     filterItems() {
-      return this.items.filter((item) => item.user == this.usuario);
+      return this.items.filter((item) => item.user == this.usuario && item.season == this.estacion);
     }
   },
   methods: {
@@ -135,16 +135,16 @@ export default {
       itemsRef.child(key).remove();
     },
     toggleHector: function() {
-        this.usuario = 'Hector'
+        this.usuario = 'hector'
     },
      toggleSummer: function() {
-        this.estacion = 'Summer'
+        this.estacion = 'summer'
     },
      toggleWinter: function() {
-        this.estacion = 'Winter'
+        this.estacion = 'winter'
     },
      toggleLola: function() {
-        this.usuario = 'Lola'
+        this.usuario = 'lola'
     },
     setEditItem(key) {
       itemsRef.child(key).update({ edit: true });
