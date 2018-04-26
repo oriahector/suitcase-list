@@ -1,18 +1,28 @@
 
 <template>
   <div>
-    <h1>Summer suitcase for Héctor</h1>
+    <div class="users">
+      <div class="users__hector" @click="toggleHector" :class="{active: usuario === 'Hector'}"></div>
+     <div class="users__lola" @click="toggleLola" :class="{active: usuario === 'Lola'}"></div>
+    </div>
+     <div class="seasons">
+      <div class="seasons__summer" @click="toggleSummer" :class="{active: estacion === 'Summer'}"></div>
+     <div class="seasons__winter" @click="toggleWinter" :class="{active: estacion === 'Winter'}"></div>
+    </div>
+
+    <h1> {{estacion}} Suitcase for {{usuario}}</h1>
     <h2>total items added: {{items.length}}</h2>
+
     <div>
       <label>Add a new item</label>
       <input type="text" v-model="item" />
-      <select v-model="newItem.season" form="carform">
+      <select v-model="newItem.season">
         <option disabled value>Season</option>
         <option value="summer" selected>Summer</option>
         <option value="winter">Winter</option>
         <option value="all">All</option>
       </select>
-      <select v-model="newItem.kind" form="carform">
+      <select v-model="newItem.kind">
         <option disabled value>Type</option>
         <option value="toilet" selected>Toiltet bag</option>
         <option value="electronics">Electronics</option>
@@ -22,7 +32,7 @@
     </div>
     <div>
       <ul>
-        <li v-for="item of items" v-bind:key="item['.key']" :class="{clothes: item.kind == 'clothes',
+        <li v-for="item of filterItems" v-bind:key="item['.key']" :class="{clothes: item.kind == 'clothes',
                  electronics: item.kind == 'electronics',
                  toilet: item.kind == 'toilet',
                  packed: item.packed}">
@@ -57,8 +67,8 @@
           </div>
         </li>
       </ul>
-    </div>
 
+     </div>
   </div>
 </template>
 
@@ -74,16 +84,17 @@ export default {
   name: "addItem",
   components: { EditComponent, sunIcon, flakeIcon, deleteIcon, pencilIcon, allIcon},
   firebase: {
-    items: itemsRef
+    items: itemsRef.orderByChild('kind')
   },
   data() {
     return {
       item: "",
+      usuario: "Hector",
+      estacion: "Summer",
       newItem: {
         name: "",
         season: "",
         kind: "",
-        user: "",
         packed: false
       },
        editItem: {
@@ -95,6 +106,11 @@ export default {
       }
     };
   },
+  computed: {
+    filterItems() {
+      return this.items.filter((item) => item.user == this.usuario);
+    }
+  },
   methods: {
     submitItem() {
       itemsRef.push({
@@ -102,16 +118,30 @@ export default {
         edit: false,
         season: this.newItem.season,
         kind: this.newItem.kind,
+        user: this.usuario,
         packed: this.newItem.packed
       });
       this.newItem.name = "";
       this.newItem.season = "";
       this.newItem.kind = "";
+      this.newItem.user = "";
       this.newItem.packed = false;
       this.item = "";
     },
     removeItem(key) {
       itemsRef.child(key).remove();
+    },
+    toggleHector: function() {
+        this.usuario = 'Hector'
+    },
+     toggleSummer: function() {
+        this.estacion = 'Summer'
+    },
+     toggleWinter: function() {
+        this.estacion = 'Winter'
+    },
+     toggleLola: function() {
+        this.usuario = 'Lola'
     },
     setEditItem(key) {
       itemsRef.child(key).update({ edit: true });

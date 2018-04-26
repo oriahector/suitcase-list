@@ -3,22 +3,22 @@
 
 .clothes {
   background: $clothes;
-  order:1;
+
 }
 
 .toilet {
   background: $toilet;
-  order:2;
+  
 }
 
 .electronics {
   background: $electronics;
-  order: 3;
+
 }
 
 .paperwork {
   background: $papework;
-  order: 3;
+ 
 }
 
 .packed {
@@ -49,14 +49,86 @@ li {
   opacity: 0.5;
 }
 
-
 button {
   border: none;
-  background: none;
+  background: red;
   cursor: pointer;
   opacity: 0.5;
   &:hover{
     opacity: 1;
     transition: 0.3s;
   }
+}
+
+.users {
+  display: flex;
+justify-content: center;
+&__lola {
+  background-image: url('../assets/berta.jpg');
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+  background-position:center;
+  border-radius: 50px;
+  border:1px solid $white;
+  background-size: cover;
+  opacity: 0.4;
+}
+
+&__hector {
+  background-image: url('../assets/berto.jpg');
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  background-position: right;
+  background-size: cover;
+  border:1px solid $white;
+  opacity: 0.4;
+  position: absolute;
+  left: 52%;
+  &--active{
+    opacity:1;
+    z-index: 2;
+  }
+}
+}
+
+.seasons {
+  display: flex;
+justify-content: center;
+&__summer {
+  background-image: url('../assets/berta.jpg');
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+  background-position:center;
+  border-radius: 50px;
+  border:1px solid $white;
+  background-size: cover;
+  opacity: 0.4;
+}
+
+&__winter{
+  background-image: url('../assets/berto.jpg');
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  background-position: right;
+  background-size: cover;
+  border:1px solid $white;
+  opacity: 0.4;
+  position: absolute;
+  left: 52%;
+  &--active{
+    opacity:1;
+    z-index: 2;
+  }
+}
+}
+
+.active {
+  opacity: 1;
+  z-index: 2;
 }

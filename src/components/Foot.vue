@@ -10,7 +10,7 @@
       <a class="footer__contact__copyright" href="http://hectororia.com">Made with
         <i class="fa fa-heart"></i> by oria_hector</a>
       <a class="footer__contact__copyright" href="http://hectororia.com/contact.php">
-        <i class="fa fa-envelope-open-o"></i> Contact me!</a>
+        <i class="fa fa-envelope-open"></i> Contact me!</a>
     </div>
   </footer>
 </template>

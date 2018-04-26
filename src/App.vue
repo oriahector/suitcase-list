@@ -4,7 +4,7 @@
     <suitcaseIcon width="50px"/>
     <!-- <add-suitcase></add-suitcase> -->
     <add-item></add-item>
-    <!-- <foot></foot> -->
+    <foot></foot>
   </div>
 </template>
 
