@@ -15,3 +15,14 @@ $electronics: #ffb3ba;
 $toilet: #bae1ff;
 $papework: #ffffba;
 
+
+//// Media Queries ////
+
+//Sizes
+
+$big: 800px;
+
+//Breakpoints
+@mixin break-point($w) {
+  @media only screen and (max-width: $w) { @content; }
+}

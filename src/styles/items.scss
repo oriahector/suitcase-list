@@ -1,23 +1,22 @@
-
 @import "./variables";
 
 .clothes {
-  background: $clothes;
+  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
 
 }
 
 .toilet {
-  background: $toilet;
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
   
 }
 
 .electronics {
-  background: $electronics;
+  background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
 
 }
 
 .paperwork {
-  background: $papework;
+  background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
  
 }
 
@@ -38,7 +37,7 @@ li {
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
-  min-height: 54px;
+  min-height: 60px;
 
   svg {
     padding: 0 10px;
@@ -51,46 +50,45 @@ li {
 
 button {
   border: none;
-  background: red;
+  background: none;
   cursor: pointer;
   opacity: 0.5;
+  padding: 1vmin;
   &:hover{
     opacity: 1;
-    transition: 0.3s;
+    transition: 0.3s ease;
+  }
+  i {
+    color: $white;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+    font-size: 2vmin;
   }
 }
 
 .users {
-  display: flex;
+display: flex;
 justify-content: center;
+margin: 2vmin;
 &__lola {
   background-image: url('../assets/berta.jpg');
   background-repeat: no-repeat;
-  height: 100px;
-  width: 100px;
+  height: 7vmin;
+  width: 7vmin;
   background-position:center;
-  border-radius: 50px;
-  border:1px solid $white;
+  border-radius: 10vmin;
+  border: 1px solid $white;
   background-size: cover;
   opacity: 0.4;
+  margin: 10px;
+  @include break-point($big){
+    height: 15vmin;
+    width: 15vmin;
+  }
 }
 
 &__hector {
+  @extend .users__lola;
   background-image: url('../assets/berto.jpg');
-  background-repeat: no-repeat;
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
-  background-position: right;
-  background-size: cover;
-  border:1px solid $white;
-  opacity: 0.4;
-  position: absolute;
-  left: 52%;
-  &--active{
-    opacity:1;
-    z-index: 2;
-  }
 }
 }
 
@@ -98,37 +96,31 @@ justify-content: center;
   display: flex;
 justify-content: center;
 &__summer {
-  background-image: url('../assets/berta.jpg');
-  background-repeat: no-repeat;
-  height: 100px;
-  width: 100px;
-  background-position:center;
-  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vmin;
+  width: 7vmin;
+  border-radius: 10vmin;
   border:1px solid $white;
-  background-size: cover;
-  opacity: 0.4;
+  opacity: 0.2;
+  margin: 10px;
+  @include break-point($big){
+    height: 15vmin;
+    width: 15vmin;
+  }
+  svg {
+    width: 70%;
+  }
 }
 
 &__winter{
-  background-image: url('../assets/berto.jpg');
-  background-repeat: no-repeat;
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
-  background-position: right;
-  background-size: cover;
-  border:1px solid $white;
-  opacity: 0.4;
-  position: absolute;
-  left: 52%;
-  &--active{
-    opacity:1;
-    z-index: 2;
-  }
+ @extend .seasons__summer;
 }
 }
 
 .active {
   opacity: 1;
   z-index: 2;
+  transition: .5s ease;
 }
