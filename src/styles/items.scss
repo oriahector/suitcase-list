@@ -38,7 +38,13 @@ li {
   justify-content: space-between;
   align-items: center;
   min-height: 60px;
-
+  p{
+    font-size: 1.2em;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
   svg {
     padding: 0 10px;
   }
@@ -53,15 +59,18 @@ button {
   background: none;
   cursor: pointer;
   opacity: 0.5;
-  padding: 1vmin;
+  padding: 0 2em 0 0;
   &:hover{
     opacity: 1;
     transition: 0.3s ease;
   }
   i {
     color: $white;
-    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
-    font-size: 2vmin;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+    font-size: 2em;
+    @include break-point($big){
+      font-size: 1.5em;
+    }
   }
 }
 
@@ -72,8 +81,8 @@ margin: 2vmin;
 &__lola {
   background-image: url('../assets/berta.jpg');
   background-repeat: no-repeat;
-  height: 7vmin;
-  width: 7vmin;
+  height: 9vmin;
+  width: 9vmin;
   background-position:center;
   border-radius: 10vmin;
   border: 1px solid $white;
@@ -99,8 +108,8 @@ justify-content: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 7vmin;
-  width: 7vmin;
+  height: 9vmin;
+  width: 9vmin;
   border-radius: 10vmin;
   border:1px solid $white;
   opacity: 0.2;

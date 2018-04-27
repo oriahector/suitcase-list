@@ -111,7 +111,7 @@ export default {
   },
   computed: {
     filterItems() {
-      return this.items.filter((item) => item.user == this.usuario && item.season == this.estacion);
+      return this.items.filter((item) => item.user == this.usuario && (item.season == this.estacion || item.season == 'all'));
     }
   },
   methods: {
