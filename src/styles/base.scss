@@ -1,61 +1,128 @@
-@import "./variables";
-html, body {
-    height:100%;
-    margin: 0;
-    padding: 0;
-  }
-  #app {
-      display: flex;
-      flex-direction: column;
-    padding: 2vmin;
-    height: 100%;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    background: rgb(34,193,195);
-  background: linear-gradient(162deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+@import './variables';
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: $white;
+}
+#app {
+  display: flex;
+  flex-direction: column;
+  padding: 2vmin;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    162deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
 
   > svg {
-      width: 10vmin;
-      margin: 10vmin;
+    width: 10vmin;
+    margin: 10vmin;
   }
+}
+
+h1 {
+  font-weight: bold;
+}
+h1,
+h2 {
+  font-size: 3vmin;
+  padding: 0;
+  margin: 3vmax;
+  @include break-point($big) {
+    font-size: 5vmin;
   }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 5vmin 0;
+}
+
+li {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+//Inputs
+input {
+  height: 14px;
+  padding: 10px;
+  width: 20%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: $white;
+  background: rgba(0, 0, 0, 0.3);
+  margin-left:1em;
   
-  h1 {
-    font-weight: bold;
-  }
-  h1,
-  h2 {
-    font-size: 3vmin;
-    padding: 0;
-    color: white;
-    margin: 3vmax;
-    @include break-point($big){
-        font-size: 5vmin;
-      }
-  }
-  label {
-    color: white;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 2vmax 0;
-  }
-  
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  
-  a {
-    color: $white;
-    text-decoration: none;
+}
+
+label {
+  font-size: 1.4em;
+}
+
+input,select {
+  font-size: 1.4vmin;
+}
+
+select {
+  color: $white;
+  height: 34px;
+  width: 100px;
+  border: none;
+  margin-left: 1em;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+.additem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+//Buttons
+
+button {
+  margin-left: 1em;
+  border: none;
+  color: $white;
+  background: none;
+  .additem & {
+    background: $main;
+    font-size: 1.5em;
+    width: 100px;
   }
 
-  p{
-    color: $white;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 36px;
+  opacity: 0.5;
+  &:hover{
+    opacity: 1;
+    transition: 0.3s ease;
   }
+  i {
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+    font-size: 2em;
+    @include break-point($big){
+      font-size: 1.5em;
+    }
+  }
+}
+
+.capital {
+  text-transform: capitalize;
+}

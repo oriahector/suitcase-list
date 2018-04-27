@@ -14,11 +14,11 @@
      </div>
     </div>
 
-    <h1> {{estacion}} Suitcase for {{usuario}}</h1>
+    <h1><span class="capital">{{estacion}}</span> Suitcase for <span class="capital">{{usuario}}</span></h1>
     <h2>This suitcase has: {{filterItems.length}} items</h2>
 
-    <div>
-      <label>Add a new item</label>
+    <div class="additem">
+      <label>Add a new item: </label>
       <input type="text" v-model="item" />
       <select v-model="newItem.season">
         <option disabled value>Season</option>
@@ -31,15 +31,17 @@
         <option value="toilet" selected>Toiltet bag</option>
         <option value="electronics">Electronics</option>
         <option value="clothes">Clothes</option>
-        <option value="Papework">Papework</option>
+        <option value="paperwork">Papework</option>
       </select>
       <button @click="submitItem()">Add</button>
     </div>
     <div>
       <ul>
-        <li v-for="item of filterItems" v-bind:key="item['.key']" :class="{clothes: item.kind == 'clothes',
+        <li v-for="item of filterItems" v-bind:key="item['.key']" :class="{
+                 clothes: item.kind == 'clothes',
                  electronics: item.kind == 'electronics',
                  toilet: item.kind == 'toilet',
+                 paperwork: item.kind == 'paperwork',
                  packed: item.packed}">
           <sunIcon width="28px" v-if="item.season == 'summer'" />
           <flakeIcon width="28px" v-if="item.season == 'winter'" />

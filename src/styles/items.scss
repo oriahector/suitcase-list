@@ -1,12 +1,12 @@
 @import "./variables";
 
 .clothes {
-  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
 
 }
 
 .toilet {
-  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
   
 }
 
@@ -38,6 +38,7 @@ li {
   justify-content: space-between;
   align-items: center;
   min-height: 60px;
+  opacity: .8;
   p{
     font-size: 1.2em;
     cursor: pointer;
@@ -52,26 +53,6 @@ li {
 
 .packed {
   opacity: 0.5;
-}
-
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  opacity: 0.5;
-  padding: 0 2em 0 0;
-  &:hover{
-    opacity: 1;
-    transition: 0.3s ease;
-  }
-  i {
-    color: $white;
-    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
-    font-size: 2em;
-    @include break-point($big){
-      font-size: 1.5em;
-    }
-  }
 }
 
 .users {
